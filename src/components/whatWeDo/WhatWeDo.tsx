@@ -116,87 +116,89 @@ const WhatWeDo = () => {
           const textOrder = id % 2 === 1 ? 1 : 2;
           const ImageOrder = id % 2 === 1 ? 2 : 1;
           return (
-            <Box key={id} sx={{ position: "relative" }}>
-              <Box sx={BoxContents}>
-                <Box sx={{ order: { xs: 2, sm: 2, lg: textOrder } }}>
-                  <Typography
-                    variant="h2"
+            <Box key={id}>
+              <Box sx={{ position: "relative" }}>
+                <Box sx={BoxContents}>
+                  <Box sx={{ order: { xs: 2, sm: 2, lg: textOrder } }}>
+                    <Typography
+                      variant="h2"
+                      sx={{
+                        fontSize: { xs: "2.5em", sm: "2.5em", lg: "6em" },
+                        textTransform: "uppercase",
+                        fontWeight: "400",
+                        ...titleStyle,
+                      }}
+                    >
+                      {title}
+                    </Typography>
+                    <Typography
+                      sx={{
+                        fontSize: { xs: "1.3em", sm: "1.3em", lg: "1.8em" },
+                        fontWeight: "400",
+                      }}
+                    >
+                      {description}
+                    </Typography>
+                  </Box>
+                  <Box
                     sx={{
-                      fontSize: { xs: "2.5em", sm: "2.5em", lg: "6em" },
-                      textTransform: "uppercase",
-                      fontWeight: "400",
-                      ...titleStyle,
+                      width,
+                      height,
+                      position: "relative",
+                      mb: { xs: "2em", sm: "2em", lg: "0" },
+                      order: { xs: "1", sm: "1", lg: ImageOrder },
                     }}
                   >
-                    {title}
-                  </Typography>
-                  <Typography
-                    sx={{
-                      fontSize: { xs: "1.3em", sm: "1.3em", lg: "1.8em" },
-                      fontWeight: "400",
-                    }}
-                  >
-                    {description}
-                  </Typography>
+                    <Image
+                      src={img}
+                      alt=""
+                      fill={true}
+                      style={{ objectFit: "cover" }}
+                    />
+                  </Box>
                 </Box>
                 <Box
                   sx={{
-                    width,
-                    height,
-                    position: "relative",
-                    mb: { xs: "2em", sm: "2em", lg: "0" },
-                    order: { xs: "1", sm: "1", lg: ImageOrder },
+                    position: "absolute",
+                    width: "100%",
+                    zIndex: -1,
+                    bottom: { xs: "-6.3em", sm: "-6.3em", lg: "-3em" },
                   }}
                 >
-                  <Image
-                    src={img}
-                    alt=""
-                    fill={true}
-                    style={{ objectFit: "cover" }}
-                  />
+                  <Marquee speed={230}>
+                    {(marquee ?? []).map((val) => {
+                      return (
+                        <Box key={val.id} sx={{ display: "flex", alignItems: "center" }}>
+                          <Typography
+                            sx={{
+                              color: "primary.main",
+                              fontSize: { xs: "3.5em", sm: "3.5em", lg: "6em" },
+                              mt: { xs: ".3em", sm: ".3em", lg: ".6em" },
+                              mr: ".1em",
+                            }}
+                          >
+                            *
+                          </Typography>
+                          <Typography
+                            sx={{
+                              ...MarqueePara,
+                              color: "white",
+                              textShadow:
+                                "#000 0px 0px 1px,#000 0px 0px 1px,#000 0px 0px 1px,#000 0px 0px 1px,#000 0px 0px 1px,#000 0px 0px 1px",
+                            }}
+                          >
+                            {val.paraOne}
+                          </Typography>
+                          <Typography
+                            sx={{ ...MarqueePara, color: "primary.light" }}
+                          >
+                            {val.paraTwo}
+                          </Typography>
+                        </Box>
+                      );
+                    })}
+                  </Marquee>
                 </Box>
-              </Box>
-              <Box
-                sx={{
-                  position: "absolute",
-                  width: "100%",
-                  zIndex: -1,
-                  bottom: { xs: "-6.3em", sm: "-6.3em", lg: "-3em" },
-                }}
-              >
-                <Marquee speed={230}>
-                  {(marquee ?? []).map((val) => {
-                    return (
-                      <Box sx={{ display: "flex", alignItems: "center" }}>
-                        <Typography
-                          sx={{
-                            color: "primary.main",
-                            fontSize: { xs: "3.5em", sm: "3.5em", lg: "6em" },
-                            mt: { xs: ".3em", sm: ".3em", lg: ".6em" },
-                            mr: ".1em",
-                          }}
-                        >
-                          *
-                        </Typography>
-                        <Typography
-                          sx={{
-                            ...MarqueePara,
-                            color: "white",
-                            textShadow:
-                              "#000 0px 0px 1px,#000 0px 0px 1px,#000 0px 0px 1px,#000 0px 0px 1px,#000 0px 0px 1px,#000 0px 0px 1px",
-                          }}
-                        >
-                          {val.paraOne}
-                        </Typography>
-                        <Typography
-                          sx={{ ...MarqueePara, color: "primary.light" }}
-                        >
-                          {val.paraTwo}
-                        </Typography>
-                      </Box>
-                    );
-                  })}
-                </Marquee>
               </Box>
             </Box>
           );
