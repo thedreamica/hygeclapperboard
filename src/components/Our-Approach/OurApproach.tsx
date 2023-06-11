@@ -30,64 +30,71 @@ const Approach = () => {
     display: "flex",
     justifyContent: {
       xs: "center",
-      sm: "center",
       lg: "space-between",
     },
-    flexDirection: { xs: "column", sm: "column", lg: "row" },
+    flexDirection: { xs: "column", lg: "row" },
+    gap: { xs: "2em", lg: "3em", xl: "15em" },
   };
   const textContents = {
     display: "flex",
     alignItems: "flex-end",
-    width: { xs: "20em", sm: "20em", lg: "30em" },
+    width: { xs: "auto", lg: "fit-content" },
     color: "white",
+    justifyContent: {
+      xs: "space-between",
+      lg: "flex-start",
+    },
   };
   const Title = {
-    fontSize: { xs: "2.2em", sm: "2.2em", lg: "4em" },
+    fontSize: { xs: "2.2em", lg: "4em" },
     textTransform: "uppercase",
-    width: { xs: "7em", sm: "7em", lg: "9em" },
+    width: { xs: "7em", lg: "auto" },
+  };
+  const BoxDetails = {
+    mb: { xs: "1em", lg: "1.2em" },
+    ml: { xs: "0.3em", lg: "1.5em" },
+    mr: "0.3em",
   };
   const Details = {
-    mb: { xs: "1em", sm: "1em", lg: "1.2em" },
-    ml: { xs: "0.3em", sm: "0.3em", lg: "1.5em" },
-    mr: "0.3em",
     color: "primary.main",
-    width: "5em",
+    width: "auto",
     fontWeight: "600",
-    fontSize: { xs: ".9em", sm: ".9em", lg: "1.1em" },
+    fontSize: { xs: ".9em", lg: "1.1em" },
     textAlign: "right",
     lineHeight: "1.3em",
     cursor: "pointer",
   };
   const Icons = {
-    fontSize: { xs: "1.7em", sm: "1.7em", lg: "2.3em" },
-    mb: "1em",
+    fontSize: { xs: "1.7em", lg: "2.3em" },
+    mb: ".7em",
   };
   const image = {
     position: "relative",
-    width: { xs: "auto", sm: "auto", lg: "700px" },
-    height: { xs: "200px", sm: "200px", lg: "300px" },
-    mt: { xs: "1.4em", sm: "1.4em", lg: "0" },
-    mb: { xs: "2.8em", sm: "2.8em", lg: "0" },
+    width: { xs: "auto", lg: "100%" },
+    height: { xs: "200px", sm: "280px", lg: "300px", xl: "380px" },
   };
   const divider = {
     bgcolor: "primary.light",
     mt: "2em",
   };
   const exploreIcons = {
-    fontSize: { xs: "1em", sm: "1em", lg: "1em" },
-    mb: { xs: ".1em", sm: ".1em", lg: ".3em" },
+    fontSize: "1em",
+    mb: { xs: ".1em", lg: ".3em" },
     ml: ".3em",
   };
   const oddOrders = {
-    order: { xs: 1, sm: 1, lg: 0 },
+    order: { xs: 1, lg: 0 },
   };
-  const evenOrders = { order: { xs: 1, sm: 1, lg: 1 } };
+  const evenOrders = {
+    order: { xs: 1, lg: 1 },
+  };
   const description = {
     color: "white",
-    width: { xs: "auto", sm: "auto", lg: "24em" },
+    width: { xs: "auto", lg: "24em" },
     mt: "1.3em",
-    fontSize: { xs: "1em", sm: "1em", lg: "1.1em" },
+    fontSize: { xs: "1em", lg: "1.1em" },
     fontWeight: "600",
+    textAlign: { xs: "center", lg: "left" },
   };
   const viewBox = {
     display: "flex",
@@ -99,41 +106,46 @@ const Approach = () => {
       id="OurApproach"
       sx={{
         bgcolor: "black",
-        px: { xs: "1.3em", sm: "1.3em", lg: "10em" },
-        py: { xs: "2em", sm: "2em", lg: "4em" },
+        px: { xs: "1.3em", lg: "8em" },
+        py: { xs: "2em", lg: "4em" },
       }}
     >
       <Typography
         sx={{
           color: "primary.main",
           fontWeight: "600",
-          fontSize: { xs: "1.9em", sm: "1.9em", lg: "2.3em" },
-          mb: { xs: "1.4em", sm: "1.4em", lg: "3em" },
+          fontSize: { xs: "1.9em", lg: "2.3em" },
+          mb: { xs: "1.4em", lg: "3em" },
           display: "flex",
-          justifyContent: { xs: "center", sm: "center", lg: "flex-start" },
+          justifyContent: { xs: "center", lg: "flex-start" },
         }}
       >
         Our Approach
       </Typography>
-      {/* grid */}
       <Box
         sx={{
           display: "grid",
-          gridTemplateRows: { xs: "auto", sm: "auto", lg: "auto auto auto" },
-          gap: { xs: "2em", sm: "2em", lg: "4em" },
+          gridTemplateRows: { xs: "auto", lg: "auto auto auto" },
+          gap: { xs: "2em", lg: "4em" },
         }}
       >
-        {/* first Box */}
         <Box>
           <Box sx={BoxContents}>
-            {/* Text */}
             <Box sx={oddOrders}>
               <Box sx={textContents}>
-                <Typography variant="h2" sx={Title}>
-                  DESIGN THINKING
-                </Typography>
+                <Box>
+                  <Typography variant="h2" sx={Title}>
+                    DESIGN
+                  </Typography>
+                  <Typography variant="h2" sx={Title}>
+                    THINKING
+                  </Typography>
+                </Box>
                 <Box sx={viewBox} onClick={() => handleView(1)}>
-                  <Typography sx={Details}>View Details</Typography>
+                  <Box sx={BoxDetails}>
+                    <Typography sx={Details}>View</Typography>
+                    <Typography sx={Details}>Details</Typography>
+                  </Box>
                   {views[0].view ? (
                     <RemoveIcon sx={Icons} />
                   ) : (
@@ -148,7 +160,6 @@ const Approach = () => {
                 </Typography>
               )}
             </Box>
-            {/* Image */}
             <Box sx={image}>
               <Image
                 src="https://i.postimg.cc/CxkGHSK4/Approach-1.png"
@@ -160,17 +171,23 @@ const Approach = () => {
           </Box>
           <Divider sx={divider} />
         </Box>
-        {/* Second Box */}
         <Box>
           <Box sx={BoxContents}>
-            {/* Text */}
             <Box sx={evenOrders}>
               <Box sx={textContents}>
-                <Typography variant="h2" sx={Title}>
-                  Strategic Design
-                </Typography>
+                <Box>
+                  <Typography variant="h2" sx={Title}>
+                    Strategic
+                  </Typography>
+                  <Typography variant="h2" sx={Title}>
+                    Design
+                  </Typography>
+                </Box>
                 <Box sx={viewBox} onClick={() => handleView(2)}>
-                  <Typography sx={Details}>View Details</Typography>
+                  <Box sx={BoxDetails}>
+                    <Typography sx={Details}>View</Typography>
+                    <Typography sx={Details}>Details</Typography>
+                  </Box>
                   {views[1].view ? (
                     <RemoveIcon sx={Icons} />
                   ) : (
@@ -186,7 +203,6 @@ const Approach = () => {
                 </Typography>
               )}
             </Box>
-            {/* Image */}
             <Box sx={image}>
               <Image
                 src="https://i.postimg.cc/nhFFT1Fw/Approach2.png"
@@ -198,17 +214,23 @@ const Approach = () => {
           </Box>
           <Divider sx={divider} />
         </Box>
-        {/* Third Box */}
         <Box>
           <Box sx={BoxContents}>
-            {/* Text */}
             <Box sx={oddOrders}>
               <Box sx={textContents}>
-                <Typography variant="h2" sx={Title}>
-                  Farfetched Creativity
-                </Typography>
+                <Box>
+                  <Typography variant="h2" sx={Title}>
+                    Farfetched
+                  </Typography>
+                  <Typography variant="h2" sx={Title}>
+                    Creativity
+                  </Typography>
+                </Box>
                 <Box sx={viewBox} onClick={() => handleView(3)}>
-                  <Typography sx={Details}>View Details</Typography>
+                  <Box sx={BoxDetails}>
+                    <Typography sx={Details}>View</Typography>
+                    <Typography sx={Details}>Details</Typography>
+                  </Box>
                   {views[2].view ? (
                     <RemoveIcon sx={Icons} />
                   ) : (
@@ -224,7 +246,6 @@ const Approach = () => {
                 </Typography>
               )}
             </Box>
-            {/* Image */}
             <Box sx={image}>
               <Image
                 src="https://i.postimg.cc/LXc4TK5z/Approach3.png"
@@ -238,17 +259,23 @@ const Approach = () => {
         </Box>
         {showBoxes && (
           <>
-            {/* fourth Box */}
             <Box>
               <Box sx={BoxContents}>
-                {/* Text */}
                 <Box sx={evenOrders}>
                   <Box sx={textContents}>
-                    <Typography variant="h2" sx={Title}>
-                      Design Feedbacks
-                    </Typography>
+                    <Box>
+                      <Typography variant="h2" sx={Title}>
+                        Design
+                      </Typography>
+                      <Typography variant="h2" sx={Title}>
+                        Feedbacks
+                      </Typography>
+                    </Box>
                     <Box sx={viewBox} onClick={() => handleView(4)}>
-                      <Typography sx={Details}>View Details</Typography>
+                      <Box sx={BoxDetails}>
+                        <Typography sx={Details}>View</Typography>
+                        <Typography sx={Details}>Details</Typography>
+                      </Box>
                       {views[3].view ? (
                         <RemoveIcon sx={Icons} />
                       ) : (
@@ -264,7 +291,6 @@ const Approach = () => {
                     </Typography>
                   )}
                 </Box>
-                {/* Image */}
                 <Box sx={image}>
                   <Image
                     src="https://i.postimg.cc/BZPX1NbT/Approach4.png"
@@ -276,17 +302,23 @@ const Approach = () => {
               </Box>
               <Divider sx={divider} />
             </Box>
-            {/* fifth Box */}
             <Box>
               <Box sx={BoxContents}>
-                {/* Text */}
                 <Box sx={oddOrders}>
                   <Box sx={textContents}>
-                    <Typography variant="h2" sx={Title}>
-                      Timed Delivery
-                    </Typography>
+                    <Box>
+                      <Typography variant="h2" sx={Title}>
+                        Timed
+                      </Typography>
+                      <Typography variant="h2" sx={Title}>
+                        Delivery
+                      </Typography>
+                    </Box>
                     <Box sx={viewBox} onClick={() => handleView(5)}>
-                      <Typography sx={Details}>View Details</Typography>
+                      <Box sx={BoxDetails}>
+                        <Typography sx={Details}>View</Typography>
+                        <Typography sx={Details}>Details</Typography>
+                      </Box>
                       {views[4].view ? (
                         <RemoveIcon sx={Icons} />
                       ) : (
@@ -302,7 +334,6 @@ const Approach = () => {
                     </Typography>
                   )}
                 </Box>
-                {/* Image */}
                 <Box sx={image}>
                   <Image
                     src="https://i.postimg.cc/5NMNQVZJ/Approach5.png"
@@ -314,17 +345,23 @@ const Approach = () => {
               </Box>
               <Divider sx={divider} />
             </Box>
-            {/* sixth Box */}
             <Box>
               <Box sx={BoxContents}>
-                {/* Text */}
                 <Box sx={evenOrders}>
                   <Box sx={textContents}>
-                    <Typography variant="h2" sx={Title}>
-                      Impact Measure
-                    </Typography>
+                    <Box>
+                      <Typography variant="h2" sx={Title}>
+                        Impact
+                      </Typography>
+                      <Typography variant="h2" sx={Title}>
+                        Measure
+                      </Typography>
+                    </Box>
                     <Box sx={viewBox} onClick={() => handleView(6)}>
-                      <Typography sx={Details}>View Details</Typography>
+                      <Box sx={BoxDetails}>
+                        <Typography sx={Details}>View</Typography>
+                        <Typography sx={Details}>Details</Typography>
+                      </Box>
                       {views[5].view ? (
                         <RemoveIcon sx={Icons} />
                       ) : (
@@ -340,7 +377,6 @@ const Approach = () => {
                     </Typography>
                   )}
                 </Box>
-                {/* Image */}
                 <Box sx={image}>
                   <Image
                     src="https://i.postimg.cc/L8xHWZh4/Approach6.png"
@@ -351,21 +387,27 @@ const Approach = () => {
                 </Box>
               </Box>
             </Box>
-            {/* end of sixth Box */}
           </>
         )}
       </Box>
-      <Link sx={{ textDecoration: "none" }} href="#OurApproach">
+      <Link
+        href="#OurApproach"
+        sx={{
+          textDecoration: "none",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
         <Button
           disableRipple
           sx={{
-            fontSize: { xs: "3em", sm: "3em", lg: "5em" },
+            fontSize: { xs: "3em", lg: "5em" },
             fontWeight: "600",
             color: "white",
-            ml: { xs: "0.3em", sm: "0.3em", lg: "auto" },
-            display: "flex",
-            mx: "auto",
-            mt: "1.5em",
+            mt: { xs: ".6em", lg: "1.5em" },
+            ":hover": {
+              bgcolor: "transparent",
+            },
           }}
           onClick={handleExplore}
           onMouseEnter={() => setHovered(true)}
@@ -382,7 +424,6 @@ const Approach = () => {
                 transition: ".3s",
                 transform: {
                   xs: "none",
-                  sm: "none",
                   lg: hovered ? "rotate(40deg)" : "none",
                 },
               }}

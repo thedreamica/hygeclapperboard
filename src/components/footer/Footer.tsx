@@ -6,13 +6,13 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
 const Footer = () => {
   const socialLinks = {
-    fontSize: { xs: "1.1em", sm: "1.1em", lg: "1.3em" },
+    fontSize: { xs: "1.1em", lg: "1.3em" },
     fontWeight: "400",
-    my: { xs: "0.50em", sm: "0.50em", lg: "0" },
+    my: { xs: "0.50em", lg: "0" },
     textTransform: "capitalize",
   };
   const Title = {
-    fontSize: { xs: "1.6em", sm: "1.6em", lg: "2em" },
+    fontSize: { xs: "1.6em", lg: "2em" },
     fontWeight: "600",
     mb: "0.6em",
   };
@@ -20,10 +20,10 @@ const Footer = () => {
   return (
     <Box
       sx={{
-        px: { xs: "1.3em", sm: "1.3em", lg: "10em" },
+        px: { xs: "1.3em", lg: "6em" },
         bgcolor: "black",
         color: "white",
-        pt: { xs: "2.5em", sm: "2.5em", lg: "6em" },
+        pt: { xs: "2.5em", lg: "6em" },
         pb: ".5em",
       }}
     >
@@ -31,12 +31,11 @@ const Footer = () => {
         <Typography
           variant="h4"
           sx={{
-            fontSize: { xs: "1.4em", sm: "1.4em", lg: "4.5em" },
+            fontSize: { xs: "1.4em", lg: "4.5em" },
             fontWeight: "600",
             display: "flex",
             justifyContent: {
               xs: "center",
-              sm: "center",
               lg: "flex-start",
             },
           }}
@@ -45,47 +44,44 @@ const Footer = () => {
         </Typography>
         <Divider sx={{ bgcolor: "primary.light" }} />
       </Box>
-      {/* social links */}
       <Box
         sx={{
           display: "flex",
           justifyContent: {
             xs: "center",
-            sm: "center",
             lg: "space-between",
           },
           alignItems: "center",
-          width: { xs: "auto", sm: "auto", lg: "33em" },
+          width: { xs: "auto", lg: "33em" },
           my: "2em",
-          flexDirection: { xs: "column", sm: "column", lg: "row" },
+          flexDirection: { xs: "column", lg: "row" },
         }}
       >
         <Typography sx={socialLinks}>facebook</Typography>
         <Typography sx={socialLinks}>twitter</Typography>
         <Typography sx={socialLinks}>instagram</Typography>
       </Box>
-      {/* grid */}
       <Box
         sx={{
           display: "grid",
-          gridTemplateColumns: { xs: "auto", sm: "auto", lg: "auto auto auto" },
-          gap: { xs: "3em", sm: "3em", lg: "8em" },
-          my: { xs: "3em", sm: "3em", lg: "6em" },
-          placeItems: { xs: "center", sm: "center", lg: "normal" },
+          gridTemplateColumns: { xs: "auto", lg: "auto auto auto" },
+          gap: "3em",
+          my: { xs: "0", sm: "0", lg: "6em" },
+          placeItems: { xs: "center", lg: "normal" },
         }}
       >
         {/* Logo */}
         <Box
           sx={{
             display: "flex",
-            alignItems: { xs: "center", sm: "center", lg: "flex-start" },
+            alignItems: { xs: "center", lg: "flex-start" },
             flexDirection: "column",
           }}
         >
           <Box
             sx={{
               position: "relative",
-              width: { xs: "145px", sm: "145px", lg: "200px" },
+              width: { xs: "145px", lg: "200px" },
               height: "87px",
             }}
           >
@@ -99,18 +95,17 @@ const Footer = () => {
           <Typography
             sx={{
               ...para,
-              ml: { xs: "0", sm: "0", lg: "3.2em" },
+              ml: { xs: "0", lg: "3.2em" },
               mt: "0.5em",
             }}
           >
             We unleash the magic of your strory
           </Typography>
         </Box>
-        {/* address */}
         <Box
           sx={{
-            mt: { xs: "0", sm: "0", lg: "2em" },
-            textAlign: { xs: "center", sm: "center", lg: "left" },
+            mt: { xs: "0", lg: "2em" },
+            textAlign: { xs: "center", lg: "left" },
           }}
         >
           <Typography sx={Title}>Address</Typography>
@@ -130,21 +125,26 @@ const Footer = () => {
           </Typography>
           <Typography sx={{ ...para }}>Mon - Friday, 8am : 5pm</Typography>
         </Box>
-        {/* ContactUs */}
         <Box
           sx={{
-            mt: { xs: "0", sm: "0", lg: "2em" },
-            textAlign: { xs: "center", sm: "center", lg: "left" },
+            mt: { xs: "0", lg: "2em" },
+            textAlign: { xs: "center", lg: "left" },
           }}
         >
           <Typography sx={Title}>Creative & Dynamic</Typography>
           <Link sx={{ textDecoration: "none" }} href="#Contactus">
-            <Box sx={{ display: "flex", alignItems: "center" }}>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                my: { xs: "3em", lg: "0" },
+              }}
+            >
               <Button
                 disableRipple
                 sx={{
                   textTransform: "uppercase",
-                  fontSize: { xs: "1.9em", sm: "1.9em", lg: "2.5em" },
+                  fontSize: { xs: "1.9em", lg: "2.2em" },
                   fontWeight: "600",
                   color: "white",
                 }}
@@ -153,9 +153,9 @@ const Footer = () => {
               </Button>
               <ArrowOutwardIcon
                 sx={{
-                  fontSize: { xs: "2.5em", sm: "2.5em", lg: "3.3em" },
+                  fontSize: { xs: "2.5em", lg: "3.3em" },
                   ml: "0.3em",
-                  mb: "13px",
+                  mb: { xs: ".1em", lg: ".3em" },
                   color: "primary.main",
                 }}
               />
@@ -163,11 +163,9 @@ const Footer = () => {
           </Link>
         </Box>
       </Box>
-      {/* Final Copyrights */}
-      {/* mobile icon */}
       <Box
         sx={{
-          display: { xs: "flex", sm: "flex", lg: "none" },
+          display: { xs: "flex", lg: "none" },
           justifyContent: "flex-end",
           width: "100%",
         }}
@@ -187,20 +185,20 @@ const Footer = () => {
           justifyContent: "space-between",
           alignItems: "center",
           textAlign: "center",
-          mb: { xs: "1em", sm: "1em", lg: "0" },
+          mb: { xs: "1em", lg: "0" },
         }}
       >
         <Typography
           sx={{
-            fontSize: { xs: ".7em", sm: ".7em", lg: "1em" },
+            fontSize: { xs: ".7em", lg: "1em" },
             fontWeight: "600",
-            mx: { xs: "auto", sm: "auto", lg: "0" },
+            mx: { xs: "auto", lg: "0" },
           }}
         >
           © Copyright 2023
           <span
             style={{
-              color: "primary.main",
+              color: "#EEB609",
               marginLeft: "4px",
               fontWeight: "900",
             }}
@@ -214,7 +212,7 @@ const Footer = () => {
             sx={{
               color: "primary.main",
               fontSize: "3.5em",
-              display: { xs: "none", sm: "none", lg: "block" },
+              display: { xs: "none", lg: "block" },
             }}
           />
         </Link>
@@ -224,4 +222,3 @@ const Footer = () => {
 };
 
 export default Footer;
-// how to write the spl characters

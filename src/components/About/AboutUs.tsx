@@ -3,9 +3,9 @@ import { Box, Typography } from "@mui/material";
 
 const AboutUs = () => {
   const title = {
-    my: { xs: ".2em", sm: ".2em", lg: "0.5em" },
-    mx: { xs: ".2em", sm: ".2em", lg: ".1em" },
-    fontSize: { xs: "1.7em", sm: "1.7em", lg: "3.75rem" },
+    my: { xs: ".2em", lg: "0.8em" },
+    mx: { xs: ".2em", lg: ".1em" },
+    fontSize: { xs: "1.7em", lg: "3.2rem" },
     textTransform: "uppercase",
     fontWeight: "400",
   };
@@ -13,18 +13,18 @@ const AboutUs = () => {
     <Box
       id="AboutUs"
       sx={{
-        py: { xs: "2em", sm: "2em", lg: "8em" },
-        px: { xs: "1.3em", sm: "1.3em", lg: "10em" },
+        py: { xs: "2em", lg: "7em" },
+        px: { xs: "1.3em", lg: "8em" },
         textAlign: "center",
-        mt: { xs: "5em", sm: "5em", lg: "0" },
+        mt: { xs: "5em", lg: "0" },
       }}
     >
       <Typography
         sx={{
           color: "primary.main",
-          fontSize: { xs: "1.9em", sm: "1.9em", lg: "2.3em" },
+          fontSize: { xs: "1.9em", lg: "2.3em" },
           fontWeight: "600",
-          mb: { xs: ".7em", sm: ".7em", lg: "0" },
+          mb: { xs: ".7em", lg: "0" },
         }}
       >
         About us
@@ -34,9 +34,9 @@ const AboutUs = () => {
           sx={{
             display: "flex",
             alignItems: "center",
-            flexDirection: { xs: "column", sm: "column", lg: "row" },
+            flexDirection: { xs: "column", lg: "row" },
             justifyContent: "center",
-            mb: { xs: "0", sm: "0", lg: "-5em" },
+            mb: { xs: "0", lg: "-5em" },
           }}
         >
           <Typography sx={title} variant="h2">
@@ -60,11 +60,11 @@ const AboutUs = () => {
         sx={{
           fontWeight: "400",
           lineHeight: "1.5em",
-          fontSize: { xs: "1.1em", sm: "1.1em", lg: "1.4em" },
-          width: { xs: "auto", sm: "auto", lg: "53em" },
+          fontSize: { xs: "1.1em", lg: "1.4em" },
+          width: { xs: "auto", lg: "auto" },
           mx: "auto",
           mb: "4.3em",
-          mt: { xs: "1.8em", sm: "1.8em", lg: "0" },
+          mt: { xs: "1.8em", lg: "0" },
         }}
       >
         Hyge Clapperboard is a leading provider of comprehensive AV production
